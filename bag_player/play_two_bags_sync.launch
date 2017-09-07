@@ -1,0 +1,4 @@
+<launch>
+	<node pkg="rosbag" type="play" name="player1" output="screen" args="--clock /home/fitter/catkin_ws/src/map_merge/bagFiles/t1.bag /map:=/turtle1/map"/>
+	<node pkg="rosbag" type="play" name="player2" output="screen" args="--clock /home/fitter/catkin_ws/src/map_merge/bagFiles/t2.bag /map:=/turtle2/map"/>
+</launch>
