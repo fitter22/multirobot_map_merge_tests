@@ -1,0 +1,32 @@
+<launch>
+
+ <arg name="world_file"  default="$(env TURTLEBOT_GAZEBO_WORLD_FILE)"/>
+ <arg name="gui" default="true"/>
+
+ <include file="$(find gazebo_ros)/launch/empty_world.launch">
+   <arg name="use_sim_time" value="true"/>
+   <arg name="debug" value="false"/>
+   <arg name="gui" value="$(arg gui)" />
+   <arg name="world_name" value="$(arg world_file)"/>
+ </include>
+
+ <group ns="turtle1">
+  <param name="tf_prefix" value="turtle1" />
+  <include file="$(find turtlebot_gazebo)/launch/singleRobot.launch" >
+    <arg name="base" value="kobuki" />
+    <arg name="stacks" value="hexagons" />
+    <arg name="3d_sensor" value="kinect" />
+    <arg name="model" value="turtlebot1"/> 
+  </include>
+ </group>
+
+ <group ns="turtle2">
+  <param name="tf_prefix" value="turtle2" />
+  <include file="$(find turtlebot_gazebo)/launch/singleRobot.launch" >
+    <arg name="base" value="kobuki" />
+    <arg name="stacks" value="hexagons" />
+    <arg name="3d_sensor" value="kinect" />
+    <arg name="model" value="turtlebot2"/>
+  </include>
+ </group>
+</launch>
