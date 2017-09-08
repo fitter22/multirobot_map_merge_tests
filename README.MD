@@ -3,6 +3,6 @@ To run it: roslaunch multirobot_map_merge_tests spawnTwoTurtlebots.launch
 
 To simultaneously run two replays:
 - run: rosparam set use_sim_time true
-- edit: bag_player/play_two_bags_sync.launch and change the launchfiles patch into correct one
+- edit: bag_player/play_two_bags_sync.launch and change the bagfiles patch into correct one
 - run: roslaunch multirobot_map_merge_tests bag_player/play_two_bags_sync.launch
 
