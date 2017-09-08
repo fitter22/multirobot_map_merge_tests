@@ -1,9 +1,8 @@
-To start gazebo with two independend turtlebots:
-- copy files from turtlebot_gazebo folder into corresponding folders in turtlebot_gazebo ROS package
-- run: roslaunch turtlebot_gazebo spawnTwoTurtlebots.launch
+Package multirobot_map_merge_tests is based on turtlebot_gazebo. It creates a sample scene in Gazebo and spawns there two turtlebots.
+To run it: roslaunch multirobot_map_merge_tests spawnTwoTurtlebots.launch
 
 To simultaneously run two replays:
 - run: rosparam set use_sim_time true
 - edit: bag_player/play_two_bags_sync.launch and change the launchfiles patch into correct one
-- run: roslaunch <package_where_you_placed_that_file> play_two_bags_sync.launch
+- run: roslaunch multirobot_map_merge_tests bag_player/play_two_bags_sync.launch
 
