@@ -15,8 +15,8 @@
   <include file="$(find turtlebot_gazebo)/launch/singleRobot.launch" >
     <arg name="base" value="kobuki" />
     <arg name="stacks" value="hexagons" />
-    <arg name="3d_sensor" value="kinect" />
-    <arg name="model" value="turtlebot1"/> 
+    <arg name="model" value="turtlebot1"/>
+    <arg name="init_pose" value="-x 1 -y 1 -z 0"/> 
   </include>
  </group>
 
@@ -25,8 +25,8 @@
   <include file="$(find turtlebot_gazebo)/launch/singleRobot.launch" >
     <arg name="base" value="kobuki" />
     <arg name="stacks" value="hexagons" />
-    <arg name="3d_sensor" value="kinect" />
     <arg name="model" value="turtlebot2"/>
+    <arg name="init_pose" value="-x 1 -y 0 -z 0"/>
   </include>
  </group>
 </launch>
