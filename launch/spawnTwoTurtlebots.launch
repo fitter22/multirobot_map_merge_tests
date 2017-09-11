@@ -1,7 +1,11 @@
 <launch>
 
- <arg name="world_file"  default="$(env TURTLEBOT_GAZEBO_WORLD_FILE)"/>
+ <arg name="world_file" default="$(env TURTLEBOT_GAZEBO_WORLD_FILE)"/>
  <arg name="gui" default="true"/>
+
+ <node pkg="map_server" type="map_server" name="map_server" args="$(arg map_file)" respawn="false" >
+   <param name="frame_id" value="/map" />
+ </node>
 
  <include file="$(find gazebo_ros)/launch/empty_world.launch">
    <arg name="use_sim_time" value="true"/>
@@ -16,7 +20,7 @@
     <arg name="base" value="kobuki" />
     <arg name="stacks" value="hexagons" />
     <arg name="model" value="turtlebot1"/>
-    <arg name="init_pose" value="-x 1 -y 1 -z 0"/> 
+    <arg name="init_pose" value="-x 1 -y 1 -z 0"/>
   </include>
  </group>
 
