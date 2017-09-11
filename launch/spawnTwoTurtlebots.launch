@@ -3,9 +3,6 @@
  <arg name="world_file" default="$(env TURTLEBOT_GAZEBO_WORLD_FILE)"/>
  <arg name="gui" default="true"/>
 
- <node pkg="map_server" type="map_server" name="map_server" args="$(arg map_file)" respawn="false" >
-   <param name="frame_id" value="/map" />
- </node>
 
  <include file="$(find gazebo_ros)/launch/empty_world.launch">
    <arg name="use_sim_time" value="true"/>
