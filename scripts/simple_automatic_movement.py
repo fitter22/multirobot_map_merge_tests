@@ -6,23 +6,32 @@ import actionlib
 
 #move_base_msgs
 from move_base_msgs.msg import *
+#from geometry_msgs.msg import *
+from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 
 def simple_move():
 
 	rospy.init_node('simple_move')
 
 	#Simple Action Client
-	sac = actionlib.SimpleActionClient('turtle1/move_base', MoveBaseAction)
+	sac = actionlib.SimpleActionClient('move_base', MoveBaseAction)
+
+	#pub = rospy.Publisher("turtle1/move_base/goal", PoseStamped, queue_size = 10)
 
 	#create goal
 	goal = MoveBaseGoal()
+	#goal = PoseStamped()
 
-	#use self?
 	#set goal
-	goal.target_pose.pose.position.x = 2.0
-	goal.target_pose.pose.orientation.w = 1.0
-	goal.target_pose.header.frame_id = 'first_move'
+	goal.target_pose.pose.position.x = 1.0
+	#goal.target_pose.pose.orientation.w = 1.0
+	goal.target_pose.header.frame_id = 'odom'
 	goal.target_pose.header.stamp = rospy.Time.now()
+
+	#goal.header.frame_id = 'base_link'
+	#goal.pose.position.x = 2.0
+	#goal.pose.orientation.w = 1.0
+	#goal.header.stamp = rospy.Time.now()
 
 	#start listner
 	rospy.loginfo("Waiting for server")
@@ -31,6 +40,7 @@ def simple_move():
 
 	#send goal
 	sac.send_goal(goal)
+	#pub.publish(goal)
 	rospy.loginfo("Goal sent")
 
 	#finish
