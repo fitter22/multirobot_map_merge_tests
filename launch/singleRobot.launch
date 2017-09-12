@@ -18,14 +18,6 @@
     <param name="publish_frequency" type="double" value="30.0" />
   </node>
 
-  <include file="$(find turtlebot_navigation)/launch/includes/gmapping/gmapping.launch.xml"/>
-
-  <!-- Turtlebot move-base -->
-  <include file="$(find turtlebot_navigation)/launch/includes/move_base.launch.xml">
-    <arg name="custom_param_file" default="$(find multirobot_map_merge_tests)/param/icclab_dwa_local_planner_params_override.yaml"/>
-  </include>
-  <include file="$(find turtlebot_navigation)/launch/includes/amcl/amcl.launch.xml"/>
-
   <!-- Fake laser -->
   <node pkg="nodelet" type="nodelet" name="laserscan_nodelet_manager" args="manager"/>
   <node pkg="nodelet" type="nodelet" name="depthimage_to_laserscan"
@@ -34,6 +26,5 @@
     <param name="output_frame_id" value="/camera_depth_frame"/>
     <param name="range_min" value="0.45"/>
     <remap from="image" to="/camera/depth/image_raw"/>
-    <remap from="scan" to="/scan"/>
   </node>
 </launch>
