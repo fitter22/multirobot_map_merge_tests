@@ -18,7 +18,10 @@
     <arg name="stacks" value="hexagons" />
     <arg name="model" value="turtlebot1"/>
     <arg name="init_pose" value="-x 0 -y 0 -z 0"/>
+    <arg name="namespace" value="turtle1"/>
   </include>
+  <node pkg="tf" type="static_transform_publisher" name="$(anon odom_map_broadcaster)" args="0 0 0 0 0 0 map turtle1/odom 100"/>
+
  </group>
 
  <group ns="turtle2">
@@ -28,6 +31,8 @@
     <arg name="stacks" value="hexagons" />
     <arg name="model" value="turtlebot2"/>
     <arg name="init_pose" value="-x 0 -y -6.5 -z 0"/>
+    <arg name="namespace" value="turtle2"/>
   </include>
+  <node pkg="tf" type="static_transform_publisher" name="$(anon odom_map_broadcaster)" args="0 0 0 0 0 0 map turtle2/odom 100"/>
  </group>
 </launch>

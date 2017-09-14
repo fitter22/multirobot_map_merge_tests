@@ -4,14 +4,18 @@
   <arg name="3d_sensor"/>
   <arg name="model"/>
   <arg name="init_pose"/>
-  
-  <arg name="urdf_file" default="$(find xacro)/xacro.py '$(find turtlebot_description)/robots/$(arg base)_$(arg stacks)_$(arg 3d_sensor).urdf.xacro'" />
+  <arg name="namespace"/>
+
+  <arg name="urdf_file" default="$(find xacro)/xacro.py '$(find multirobot_map_merge_tests)/robots/kobuki_hexagons_kinect_multi_robot.urdf.xacro'
+                                namespace:=$(arg namespace)" />
+
+
   <param name="robot_description" command="$(arg urdf_file)" />
-  
+
   <!-- Gazebo model spawner -->
   <node name="spawn_turtlebot_model" pkg="gazebo_ros" type="spawn_model"
         args="$(arg init_pose) -unpause -urdf -param robot_description -model $(arg model)"/>
-  
+
   <!-- Velocity muxer -->
   <node pkg="nodelet" type="nodelet" name="mobile_base_nodelet_manager" args="manager"/>
   <node pkg="nodelet" type="nodelet" name="cmd_vel_mux"
