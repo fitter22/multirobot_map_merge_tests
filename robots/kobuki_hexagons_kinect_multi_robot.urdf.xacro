@@ -15,10 +15,4 @@
   <kobuki/>
   <stack_hexagons parent="base_link"/>
   <sensor_kinect  parent="base_link"/>
-  <!--
-    that probably should be changed to "<sensor_kinect  parent="$(arg namespace)/base_link"/>"
-    to fix odom->base_footprint, but now I'm getting urdf parsing errors...
-
-    ref: https://answers.ros.org/question/226274/is-it-possible-to-use-robot_localization-for-multiple-robots/
-  -->
 </robot>

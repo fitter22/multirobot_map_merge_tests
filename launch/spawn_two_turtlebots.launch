@@ -13,7 +13,7 @@
 
  <group ns="turtle1">
   <param name="tf_prefix" value="turtle1" />
-  <include file="$(find multirobot_map_merge_tests)/launch/singleRobot.launch" >
+  <include file="$(find multirobot_map_merge_tests)/launch/single_robot.launch" >
     <arg name="base" value="kobuki" />
     <arg name="stacks" value="hexagons" />
     <arg name="model" value="turtlebot1"/>
@@ -27,7 +27,7 @@
 
  <group ns="turtle2">
   <param name="tf_prefix" value="turtle2" />
-  <include file="$(find multirobot_map_merge_tests)/launch/singleRobot.launch" >
+  <include file="$(find multirobot_map_merge_tests)/launch/single_robot.launch" >
     <arg name="base" value="kobuki" />
     <arg name="stacks" value="hexagons" />
     <arg name="model" value="turtlebot2"/>

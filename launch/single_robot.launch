@@ -22,8 +22,6 @@
     <param name="tf_prefix" value="$(arg namespace)"/>
   </node>
 
-  <!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/> -->
-
   <!-- Gmapping -->
   <include file="$(find multirobot_map_merge_tests)/launch/includes/kinect_gmapping.launch.xml">
     <arg name="namespace" value="$(arg namespace)"/>
