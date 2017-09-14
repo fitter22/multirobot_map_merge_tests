@@ -20,7 +20,8 @@
     <arg name="init_pose" value="-x 0 -y 0 -z 0"/>
     <arg name="namespace" value="turtle1"/>
   </include>
-  <node pkg="tf" type="static_transform_publisher" name="$(anon odom_map_broadcaster)" args="0 0 0 0 0 0 map turtle1/odom 100"/>
+  <!-- <node pkg="tf" type="static_transform_publisher" name="$(anon odom_map_broadcaster)" args="0 0 0 0 0 0 turtle1/map turtle1/odom 100"/> -->
+  <!-- <node pkg="tf" type="static_transform_publisher" name="$(anon footprint_link_broadcaster)" args="0 0 0 0 0 0 turtle1/base_footprint turtle1/base_link 100"/> -->
 
  </group>
 
@@ -33,6 +34,7 @@
     <arg name="init_pose" value="-x 0 -y -6.5 -z 0"/>
     <arg name="namespace" value="turtle2"/>
   </include>
-  <node pkg="tf" type="static_transform_publisher" name="$(anon odom_map_broadcaster)" args="0 0 0 0 0 0 map turtle2/odom 100"/>
+  <!-- <node pkg="tf" type="static_transform_publisher" name="$(anon odom_map_broadcaster)" args="0 0 0 0 0 0 turtle2/map turtle2/odom 100"/> -->
+  <!-- <node pkg="tf" type="static_transform_publisher" name="$(anon footprint_link_broadcaster)" args="0 0 0 0 0 0 turtle2/base_footprint turtle2/base_link 100"/> -->
  </group>
 </launch>

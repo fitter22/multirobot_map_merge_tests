@@ -15,13 +15,14 @@
     <arg name="init_pose" value="$(arg init_pose)"/>
     <arg name="namespace" value="$(arg namespace)"/>
   </include>
-<!-- 
+
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
     <param name="publish_frequency" type="double" value="30.0" />
-    <param name="use_tf_static" value="false"/>
-  </node> -->
+    <param name="use_tf_static" value="true"/>
+    <param name="tf_prefix" value="$(arg namespace)"/>
+  </node>
 
-  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+  <!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/> -->
 
   <!-- Gmapping -->
   <include file="$(find multirobot_map_merge_tests)/launch/includes/kinect_gmapping.launch.xml">
