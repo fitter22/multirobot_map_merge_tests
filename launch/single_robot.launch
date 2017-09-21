@@ -28,7 +28,7 @@
   </include>
 
   <!-- Move base -->
-  <include file="$(find turtlebot_navigation)/launch/includes/move_base.launch.xml"/>
+  <include file="$(find multirobot_map_merge_tests)/launch/includes/move_base.launch"/>
 
   <!-- Fake laser -->
   <node pkg="nodelet" type="nodelet" name="laserscan_nodelet_manager" args="manager"/>
