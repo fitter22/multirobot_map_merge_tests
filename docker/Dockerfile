@@ -17,13 +17,13 @@ RUN apt-get install -y ros-kinetic-multirobot-map-merge
 #Install gezebo
 RUN apt-get install -y ros-kinetic-gazebo-ros-pkgs ros-kinetic-gazebo-ros-control
 
-#Install rviz
+# Install turtlebot packages
+RUN apt-get install -y ros-kinetic-turtlebot-description ros-kinetic-turtlebot-bringup ros-kinetic-turtlebot-navigation ros-kinetic-turtlebot-teleop
+
+# Install rviz
 RUN apt-get install -y ros-kinetic-rviz
 
-#Install multirobot_map_merge_tests package
-#RUN git clone https://github.com/fitter22/multirobot_map_merge_tests.git
-
-#Configure environment
+# Configure environment
 CMD ["/bin/bash", "entrypoint.sh"]
 
 
