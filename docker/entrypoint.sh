@@ -11,13 +11,15 @@ git clone https://github.com/turtlebot/turtlebot_simulator.git
 
 git clone https://github.com/fitter22/multirobot_map_merge_tests.git
 
+git clone https://github.com/hrnr/m-explore.git
+
 cd ..
 
 catkin_make
 
 source /catkin_ws/devel/setup.bash
 
-export TURTLEBOT_GAZEBO_WORLD_FILE="~/catkin_ws/src/turtlebot_simulator/turtlebot_gazebo/worlds/playground.world"
+export TURTLEBOT_GAZEBO_WORLD_FILE="/catkin_ws/src/turtlebot_simulator/turtlebot_gazebo/worlds/playground.world"
 
 roslaunch multirobot_map_merge_tests spawn_two_turtlebots.launch
 
