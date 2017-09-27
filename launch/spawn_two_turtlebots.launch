@@ -3,6 +3,7 @@
  <arg name="world_file" default="$(env TURTLEBOT_GAZEBO_WORLD_FILE)"/>
  <arg name="gui" default="true"/>
 
+ <param name="robot_description" command="$(find xacro)/xacro.py $(find multirobot_map_merge_tests)/robots/kobuki_hexagons_kinect_multi_robot.urdf.xacro"/>
 
  <include file="$(find gazebo_ros)/launch/empty_world.launch">
    <arg name="use_sim_time" value="true"/>

@@ -11,16 +11,19 @@
     <arg name="base" value="$(arg base)"/>
     <arg name="stacks" value="$(arg stacks)"/>
     <arg name="3d_sensor" value="$(arg 3d_sensor)"/>
-    <arg name="model" value="$(arg model)"/>
-    <arg name="init_pose" value="$(arg init_pose)"/>
     <arg name="namespace" value="$(arg namespace)"/>
   </include>
 
-  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+  <node pkg="robot_state_publisher" type="robot_state_publisher"
+        name="robot_state_publisher" output="screen">
     <param name="publish_frequency" type="double" value="30.0" />
     <param name="use_tf_static" value="true"/>
     <param name="tf_prefix" value="$(arg namespace)"/>
   </node>
+
+  <!-- Gazebo model spawner -->
+  <node name="spawn_turtlebot_model" pkg="gazebo_ros" type="spawn_model"
+        args="$(arg init_pose) -unpause -urdf -param /robot_description -model $(arg model)"/>
 
   <!-- Gmapping -->
   <include file="$(find multirobot_map_merge_tests)/launch/includes/kinect_gmapping.launch.xml">
@@ -28,7 +31,9 @@
   </include>
 
   <!-- Move base -->
-  <include file="$(find multirobot_map_merge_tests)/launch/includes/move_base.launch"/>
+  <include file="$(find multirobot_map_merge_tests)/launch/includes/move_base.launch">
+    <arg name="custom_param_file" default="$(find icclab_turtlebot)/param/icclab_dwa_local_planner_params_override.yaml"/>
+  </include>
 
   <!-- Fake laser -->
   <node pkg="nodelet" type="nodelet" name="laserscan_nodelet_manager" args="manager"/>
