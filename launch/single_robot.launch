@@ -1,16 +1,12 @@
 <launch>
-  <arg name="base" default="$(optenv TURTLEBOT_BASE kobuki)"/>
-  <arg name="battery" value="$(optenv TURTLEBOT_BATTERY /proc/acpi/battery/BAT0)"/>
-  <arg name="stacks" default="$(optenv TURTLEBOT_STACKS hexagon)"/>
-  <arg name="3d_sensor" default="$(optenv TURTLEBOT_3D_SENSOR kinect)"/>
   <arg name="model" default="model_base"/>
   <arg name="init_pose"/>
   <arg name="namespace"/>
 
-  <include file="$(find multirobot_map_merge_tests)/launch/includes/$(arg base).launch.xml">
-    <arg name="base" value="$(arg base)"/>
-    <arg name="stacks" value="$(arg stacks)"/>
-    <arg name="3d_sensor" value="$(arg 3d_sensor)"/>
+  <include file="$(find multirobot_map_merge_tests)/launch/includes/kobuki.launch.xml">
+    <arg name="base" value="kobuki"/>
+    <arg name="stacks" value="hexagon"/>
+    <arg name="3d_sensor" value="kinect"/>
     <arg name="namespace" value="$(arg namespace)"/>
   </include>
 
