@@ -12,12 +12,16 @@
   <arg name="laser_topic" default="scan" />
   <arg name="custom_param_file" default="$(find turtlebot_navigation)/param/dummy.yaml"/>
 
+  <include file="$(find turtlebot_navigation)/launch/includes/amcl/amcl.launch.xml">
+    <arg name="use_map_topic" value="true"/>
+  </include>
+
   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
   	<remap from="map" to="/map" />
     <rosparam file="$(find turtlebot_navigation)/param/costmap_common_params.yaml" command="load" ns="global_costmap" />
     <rosparam file="$(find turtlebot_navigation)/param/costmap_common_params.yaml" command="load" ns="local_costmap" />
-    <rosparam file="$(find turtlebot_navigation)/param/local_costmap_params.yaml" command="load" />
-    <rosparam file="$(find turtlebot_navigation)/param/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find multirobot_map_merge_tests)/param/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find multirobot_map_merge_tests)/param/global_costmap_params.yaml" command="load" />
     <rosparam file="$(find turtlebot_navigation)/param/dwa_local_planner_params.yaml" command="load" />
     <rosparam file="$(find turtlebot_navigation)/param/move_base_params.yaml" command="load" />
     <rosparam file="$(find turtlebot_navigation)/param/global_planner_params.yaml" command="load" />
