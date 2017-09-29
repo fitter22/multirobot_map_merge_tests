@@ -16,7 +16,7 @@ If you want to configure your ros locally in your machine you can find some tips
 - You can use img from dockerhub or just build one in your machine
 - Expose your xhost `xhost +local:root` (the simplest way, but not secure. More info  [here](http://wiki.ros.org/docker/Tutorials/GUI))
 - `docker run -it -e DISPLAY -e QT_X11_NO_MITSHM=1 -v /tmp/.X11-unix:/tmp/.X11-unix:rw --device /dev/dri --rm <name of img>` <- for full GUI mode
-- or just `docker run -it -e k8s=true --rm <name if img>` <- for ""headless"" mode for kubernetes
+- or just `docker run -it -e k8s=true --rm <name if img>` <- ""headless"" mode for kubernetes
 - When you are done dont forget about `xhost -local:root`
 
 ### To simultaneously run two replays:

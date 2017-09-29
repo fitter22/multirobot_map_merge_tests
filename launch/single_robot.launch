@@ -28,7 +28,7 @@
 
   <!-- Move base -->
   <include file="$(find multirobot_map_merge_tests)/launch/includes/move_base.launch">
-    <arg name="custom_param_file" default="$(find icclab_turtlebot)/param/icclab_dwa_local_planner_params_override.yaml"/>
+    <arg name="custom_param_file" default="$(find multirobot_map_merge_tests)/param/icclab_dwa_local_planner_params_override.yaml"/>
   </include>
 
   <!-- Fake laser -->
