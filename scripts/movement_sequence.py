@@ -19,7 +19,7 @@ class Sequence_move():
         turtle1_cmd = Twist()
 	    # go forward at 0.2 m/s
         turtle1_cmd.linear.x = 0.2
-	    # turn at 0 radians/s
+	    # turn at 0.2 radians/s
         turtle1_cmd.angular.z = 0.2
 
         turtle2_cmd = Twist()
